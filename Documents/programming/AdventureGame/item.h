@@ -4,7 +4,6 @@
 #include <iostream>
 #include <map>
 #include <vector>
-#include "location.h"
 
 //ITEMS HAVE
 //names
@@ -14,15 +13,18 @@
 class Item
 {
 private:
+    std::string id;
     std::string name;
     int amount;
 public:
+    Item(std::string id, std::string name, int amount);
     Item();
 
-    void addItem(Item item);
-    void removeItem(vector<Item>::const_iterator item);
+    std::string getId() const {return id;}
+    std::string getName() const{return name;}
+    int getAmount() const{return amount;}
 
-    void displayItem();
+    //void removeItem(vector<Item>::const_iterator item);
 };
 
 #endif // ITEM_H

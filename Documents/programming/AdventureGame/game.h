@@ -18,6 +18,12 @@ public:
     Game();
     void addLocation(Location loc);
     Location* getCurrentLoc() const;
+    void checkAndMoveDirection(std::string name);
+    void addItemToInventory(Item item);
+    void removeItemFromInventory(Item item);
+    void displayItemsInInventory();
+    bool canHaveItemInventory(std::string name);
+    Item findItemInventory(std::string name);
 };
 
 #endif // GAME_H

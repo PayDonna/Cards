@@ -6,11 +6,6 @@
 #include <vector>
 #include "item.h"
 
-//oh god okay how to implement items
-//items would obvs be in certain locations
-//specific rooms or areas
-//
-
 
 enum class Direction {
     North,
@@ -24,19 +19,24 @@ class Location
     std::string id;
     std::string name;
     std::string description;
-    // items
-    std::map<Direction, std::string> adjacentLocation;
-    std::vector<Item> itemsAtLocation;
+    std::map<Direction, std::string> adjacentLocations;
+    std::vector<Item> locationItems;
 public:
     Location(std::string id, std::string name, std::string description);
-    Location changeLocation(Location newLocation);
+    Location();
     std::string getId() const {return id;}
     std::string getName() const{return name;}
     std::string getDesc() const{return description;}
-    std::map<Direction, std::string> getAdj() const {return adjacentLocation;}
-    const std::vector<Item>& getItems() const {return itemsAtLocation;}
+    //const std::vector<Item>& getItems();
     void addAdjLoc(Direction dir, Location loc);
     void displayAdjacent();
+    bool doesHaveLocation(Direction dir);
+    std::string getAdjacentLocation(Direction dir);
+    void addItemToLocation(Item item);
+    void removeItemFromLocation(Item item);
+    void displayItemsAtLocation();
+    bool canHaveItem(std::string name);
+    Item findItem(std::string name);
 
 };
 
